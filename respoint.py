@@ -13,8 +13,8 @@ class ResPoint(nn.Module):
         self.sa2 = PointNetSetAbstractionMsg(128, [0.2, 0.4, 0.8], [32, 64, 128], 320,[[64, 64, 128,128], [128, 128, 256,256], [128, 128,256, 256]])
         self.sa3 = PointNetSetAbstractionMsg(128, [0.2, 0.4, 0.8], [32, 64, 128], 640,[[64, 64, 128], [128, 128, 256], [128, 128, 256]])
 
-        # self.sa4 = PointNetSetAbstraction(None, None, None, 320 + 3, [256, 512, 1024], True)
-        self.sc4 = PointNetFeatureConcat()
+        self.sa4 = PointNetSetAbstraction(None, None, None, 320 + 3, [256, 512, 1024], True)
+        #self.sc4 = PointNetFeatureConcat()
         self.fc1 = nn.Linear(1024, 512)
         self.bn1 = nn.BatchNorm1d(512)
         self.drop1 = nn.Dropout(0.4)
